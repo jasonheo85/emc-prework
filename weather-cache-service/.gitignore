@@ -1,0 +1,15 @@
+# Added for Gradle
+build/
+bin/
+.gradle/
+
+*.class
+*.project
+*.classpath
+*.settings
+
+# Package Files #
+*.jar
+*.war
+
+vf.*

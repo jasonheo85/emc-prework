@@ -5,9 +5,11 @@ It caches weather information into GemFire. This application provides accesses G
 
 __Architecture__
 
-This application creates and retrieve Weather objects stored into a GemFire using Spring Data REST. Spring Data REST takes the features of Spring HATEOAS and Spring Data Gemfire and combines them together automatically.
+This application creates and retrieves Weather objects stored into GemFire using Spring Data REST. Spring Data REST takes the features of Spring HATEOAS and Spring Data Gemfire and combines them together automatically.
 
-Although it is possible to package this service as a traditional WAR file for deployment to an external application server, the simpler approach demonstrated below creates a standalone application using Spring Boot You package everything in a single, executable JAR file, driven by a good old Java main() method. Along the way, you use Spring¡¯s support for embedding the Tomcat servlet container as the HTTP runtime, instead of deploying to an external instance.
+The Weather class is annotated @Region("weather"). When GemFire stores the class, a new entry is created inside that specific region. This class also has name marked with @Id. This is for internal usage to help GemFire track the data.
+
+Although it is possible to package this service as a traditional WAR file for deployment to an external application server, the simpler approach demonstrated below creates a standalone application using Spring Boot It packages everything in a single, executable JAR file, driven by a good old Java main() method. Along the way, you use Spring¡¯s support for embedding the Tomcat servlet container as the HTTP runtime, instead of deploying to an external instance.
 
 Continous Integration is achieved via the CloudBees-CloudFoundry Integration service wherein a git push to the repository. results in a build being triggered on CloudBees and a deployment to CloudFoundry if the build is stable.
 

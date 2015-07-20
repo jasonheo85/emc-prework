@@ -14,7 +14,7 @@ Although it is possible to package this service as a traditional WAR file for de
 Continous Integration is achieved via the CloudBees-CloudFoundry Integration service wherein a git push to the repository. results in a build being triggered on CloudBees and a deployment to CloudFoundry if the build is stable.
 
 > _Application Link on Pivotal Web Services_
-http://......
+http://weather-cache-service.cfapps.io/weathers
 
 __Plan__
  1. Create a gradle build to build a jar file
@@ -22,5 +22,6 @@ __Plan__
  3. Create Junit Tests to test Weather Cache Service using RestTemplate to post a Weather object to WeatherRepository and get a Weather object by zip
  4. Create WeatherRepository. This repository is an interface and allow to perform various operations involving Weather objects. It gets these operations by extending CrudRepository. At runtime, Spring Data REST will create an implementation of this interface automatically. Then it will use the @RepositoryRestResource annotation to direct Spring MVC to create RESTful endpoints at /weathers.
  5. Create Application class to make the Weather Cache Service application executable using Spring Boot
- 6. Configure a Cpntinuous Integration using CloudBees Jenkins https://....
-    - CloudBees Jenkins as a service builds the jar, runs tests and pushes to http://....
+ 6. Configure a Continuous Integration using CloudBees Jenkins https://jasonheo85.ci.cloudbees.com/?cloudbees.platform
+    - CloudBees Jenkins builds the jar, runs tests and tried to push to http://weather-cache-service.cfapps.io/, but it threw java.lang.NoClassDefFoundError: Could not initialize class org.apache.tomcat.websocket.WsWebSocketContainer
+ 7. Create Application Manifest manifest.yml to push Weather Cache Service jar to http://weather-cache-service.cfapps.io using Cloud Foundry CLI

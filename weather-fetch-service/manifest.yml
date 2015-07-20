@@ -5,4 +5,4 @@ applications:
   path: ./build/libs/weather-fetch-service-0.1.0.jar
   timeout: 180
   env:
-    JAVA_OPTS: "-Dweather.cache.service.server=weather-cache-service.cfapps.io -Dweather.cache.service.port= -Dweather.cache.service.interval="
+    JAVA_OPTS: "-Dweather.cache.service.server=weather-cache-service.cfapps.io -Dweather.cache.service.port= -Dweather.cache.service.interval=6000 -Dweather.cache.service.interval="

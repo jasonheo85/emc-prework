@@ -33,6 +33,10 @@ public class Application implements CommandLineRunner {
         String url = "http://" + server + ((port != null && !port.trim().equals("")) ? (":" + port) : "") + "/weathers";
         log.info("URL: " + url);
         
+    	String intervalStr = System.getProperty("weather.cache.service.interval");
+    	log.info("weather.cache.service.interval: " + intervalStr);
+    	int interval = Integer.parseInt(intervalStr);
+        
         while (true) {
 	    	Weather farmington = new Weather("48331", randomPrecipitation());
 	    	Weather southfield = new Weather("48034", randomPrecipitation());
@@ -46,7 +50,7 @@ public class Application implements CommandLineRunner {
 			log.info(southfield + " posted to weather-cache");
 			log.info(troy       + " posted to weather-cache");
 			
-			Thread.sleep(60000); // sleep for 1 min
+			Thread.sleep(interval);
         }
 	}
 	

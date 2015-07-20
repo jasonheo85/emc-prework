@@ -7,6 +7,8 @@ __Architecture__
 
 This application randomly and periodically generates precipitation for each zip code. The Spring Boot's Application class implements CommandLineRunner interface and it randomly and periodically generates precipitationand creates Weather objects for zip codes in CommandLineRunner interface's run methods. After creating Weather objects, it posts the objects to the Weather Cache Service application and in turn these are cached into GemFire.
 
+This application gets System properties for server name and port number of the Weather Cache Service application in order to get environment specific configuration variables. It can be set using "cf set-env' or "env" section in manifest.yml when pushing application to Cloud Fonndry.
+
 Although it is possible to package this service as a traditional WAR file for deployment to an external application server, the simpler approach demonstrated below creates a standalone application using Spring Boot It packages everything in a single, executable JAR file, driven by a good old Java main() method. Along the way, you use Spring¡¯s support for embedding the Tomcat servlet container as the HTTP runtime, instead of deploying to an external instance.
 
 Continous Integration is achieved via the CloudBees-CloudFoundry Integration service wherein a git push to the repository. results in a build being triggered on CloudBees and a deployment to CloudFoundry if the build is stable.

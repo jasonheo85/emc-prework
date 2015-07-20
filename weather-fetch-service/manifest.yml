@@ -1,0 +1,8 @@
+---
+applications:
+- name: weather-fetch-service
+  memory: 512M
+  path: ./build/libs/weather-fetch-service-0.1.0.jar
+  timeout: 180
+  env:
+    JAVA_OPTS: "-Dweather.cache.service.server=weather-cache-service.cfapps.io -Dweather.cache.service.port= -Dweather.cache.service.interval="

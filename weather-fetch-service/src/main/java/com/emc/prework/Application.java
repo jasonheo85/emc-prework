@@ -17,8 +17,9 @@ public class Application implements CommandLineRunner {
 	private static final Logger log = LoggerFactory.getLogger(Application.class);
 	
 	public static void main(String[] args) {
-		
+
 		SpringApplication.run(Application.class, args);
+
 	}
 	
 	@Override
@@ -28,7 +29,8 @@ public class Application implements CommandLineRunner {
 		
         String server = System.getProperty("weather.cache.service.server");
         String port = System.getProperty("weather.cache.service.port");
-        String url = "http://" + server + ":" + port + "/weathers";
+        log.info("server: " + server + ", port: " + port);
+        String url = "http://" + server + ((port != null && !port.trim().equals("")) ? (":" + port) : "") + "/weathers";
         log.info("URL: " + url);
         
         while (true) {

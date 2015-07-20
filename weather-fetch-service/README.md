@@ -23,4 +23,4 @@ __Plan__
  3. Create Application class to make the Weather Cache Service application executable using Spring Boot
  4. Configure a Continuous Integration using CloudBees Jenkins https://jasonheo85.ci.cloudbees.com/?cloudbees.platform
     - CloudBees Jenkins builds the jar, runs tests and tried to push to http://weather-fetch-service.cfapps.io/, but it threw java.lang.NoClassDefFoundError: Could not initialize class org.apache.tomcat.websocket.WsWebSocketContainer
- 7. Create Application Manifest manifest.yml to push Weather Cache Service jar to http://weather-cache-service.cfapps.io using Cloud Foundry CLI
+ 7. Create Application Manifest manifest.yml to push Weather Fetch Service jar to http://weather-cache-service.cfapps.io using Cloud Foundry CLI

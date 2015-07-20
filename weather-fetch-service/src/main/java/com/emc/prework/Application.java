@@ -33,9 +33,9 @@ public class Application implements CommandLineRunner {
         String url = "http://" + server + ((port != null && !port.trim().equals("")) ? (":" + port) : "") + "/weathers";
         log.info("URL: " + url);
         
-    	String intervalStr = System.getProperty("weather.cache.service.interval");
-    	log.info("weather.cache.service.interval: " + intervalStr);
-    	int interval = Integer.parseInt(intervalStr);
+    	String intervalString = System.getProperty("weather.cache.service.interval");
+    	log.info("weather.cache.service.interval: " + intervalString);
+    	int interval = Integer.parseInt(intervalString);
         
         while (true) {
 	    	Weather farmington = new Weather("48331", randomPrecipitation());

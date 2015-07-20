@@ -2,4 +2,5 @@
 applications:
 - name: weather-cache-service
   memory: 512M
+  instances: 1
   path: ./build/libs/weather-cache-service-0.1.0.jar

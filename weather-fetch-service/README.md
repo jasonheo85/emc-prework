@@ -5,7 +5,7 @@ It fetches and then caches weather information into GemFire through the Weather 
 
 __Architecture__
 
-This application randomly and periodically generates precipitation for each zip code. The Spring Boot's Application class implements CommandLineRunner interface and it randomly and periodically generates precipitationand creates Weather objects for zip codes in CommandLineRunner interface's run methods. After creating Weather objects, it posts the objects to the Weather Cache Service application and in turn these are cached into GemFire.
+This application randomly and periodically generates precipitation for each zip code. The Spring Boot's Application class enables Scheduling using @EnableScheduling and an annotated class (ScheduledTasks) with @Scheduled calls WeatherFetchService which randomly generates precipitation for zip codes and post Weather objects to WeatherCacheService using RestTemplate. Then, the Weather Cache Service application and in turn these are cached into GemFire.
 
 This application gets System properties for server name and port number of the Weather Cache Service application in order to get environment specific configuration variables. It can be set using "cf set-env' or "env" section in manifest.yml when pushing application to Cloud Fonndry.
 

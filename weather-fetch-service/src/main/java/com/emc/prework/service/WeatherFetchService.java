@@ -33,9 +33,9 @@ public class WeatherFetchService {
 		restTemplate.postForObject(url, southfield, Weather.class);
 		restTemplate.postForObject(url, troy, Weather.class);
 
-		log.info(farmington + " posted to weather-cache");
-		log.info(southfield + " posted to weather-cache");
-		log.info(troy + " posted to weather-cache");
+		log.info(farmington + " posted to weather-cache-service");
+		log.info(southfield + " posted to weather-cache-service");
+		log.info(troy + " posted to weather-cache-service");
 	}
 
 	private static int randomPrecipitation() {

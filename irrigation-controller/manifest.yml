@@ -1,0 +1,6 @@
+---
+applications:
+- name: weather-fetch-service
+  memory: 512M
+  instances: 1
+  path: ./build/libs/irrigation-controller-0.1.0.jar

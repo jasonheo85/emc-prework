@@ -16,13 +16,16 @@ Although it is possible to package this service as a traditional WAR file for de
 Continous Integration is achieved via the CloudBees-CloudFoundry Integration service wherein a git push to the repository. results in a build being triggered on CloudBees and a deployment to CloudFoundry if the build is stable.
 
 > _Application Link on Pivotal Web Services_
-http://weather-fetch-service.cfapps.io/
-It responds with 404 Not Found because it is a standalone application and it doesn't accept web request
+http://irrigation-controller.cfapps.io/
 
 __Plan__
  1. Create a gradle build to build a jar file
  2. Create a domain object Weather which contains zip code and precipitation
- 3. Create Application class to make the Weather Cache Service application executable using Spring Boot
- 4. Configure a Continuous Integration using CloudBees Jenkins https://jasonheo85.ci.cloudbees.com/?cloudbees.platform
+ 3. Create a domain object WeatherInfo for view which contains zip code, precipitation, waterOrNot (boolean) and message
+ 4. Create Application class to make the Irrigation Controller application executable using Spring Boot
+ 5. Create IrrigationController class as a Spring MVC Controller
+ 6. Create WeatherService class to connect to Weather Cache Service application using RestTemplate
+ 7. Create home.html and irrigation.js using jQuery
+ 8. Configure a Continuous Integration using CloudBees Jenkins https://jasonheo85.ci.cloudbees.com/?cloudbees.platform
     - CloudBees Jenkins builds the jar, runs tests and tried to push to http://weather-fetch-service.cfapps.io/, but it threw java.lang.NoClassDefFoundError: Could not initialize class org.apache.tomcat.websocket.WsWebSocketContainer
- 7. Create Application Manifest manifest.yml to push Weather Fetch Service jar to http://weather-cache-service.cfapps.io using Cloud Foundry CLI
+ 9. Create Application Manifest manifest.yml to push Weather Fetch Service jar to http://weather-cache-service.cfapps.io using Cloud Foundry CLI

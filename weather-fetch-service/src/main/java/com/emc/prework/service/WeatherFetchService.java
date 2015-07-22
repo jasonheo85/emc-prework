@@ -35,7 +35,7 @@ public class WeatherFetchService {
 
 		log.info(farmington + " posted to weather-cache-service");
 		log.info(southfield + " posted to weather-cache-service");
-		log.info(troy + " posted to weather-cache-service");
+		log.info(troy + " posted to weather-cache-service"); 
 	}
 
 	private static int randomPrecipitation() {

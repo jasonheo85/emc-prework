@@ -13,7 +13,7 @@ public class ScheduledTasks {
 	private WeatherFetchService weatherFetchService;
 	
 	@Scheduled(fixedRate = 60000)
-    public void reportCurrentTime() {
+    public void fetchWeatherInfo() {
         weatherFetchService.fetchWeatherInfo();
     }
 }
